@@ -1,9 +1,10 @@
 import React from "react";
+import "./NavBar.css";
 
 const NavBar = () => {
   return (
-    <nav style={{ background: "#333", color: "#fff", padding: "10px" }}>
-      <h1>Rijksmuseum Collection</h1>
+    <nav className="navbar">
+      <h1>Rijksmuseum Collection Search</h1>
     </nav>
   );
 };

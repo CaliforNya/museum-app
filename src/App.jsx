@@ -25,7 +25,7 @@ const App = () => {
         }
       );
 
-      console.log("Odpowiedź z API:", response.data);
+      console.log("answerAPI:", response.data);
 
       if (response.data.artObjects.length > 0) {
         setItems(response.data.artObjects);
@@ -46,9 +46,8 @@ const App = () => {
       <SearchBar onSearch={handleSearch} />
       {loading && <p>Searching for results... </p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
-      <div
-        style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
-      >
+
+      <div className="card-container">
         {items.map((item) => (
           <ArtCard key={item.id} item={item} />
         ))}

@@ -1,26 +1,36 @@
 import React from "react";
+import "./ArtCard.css";
+// import defaultImage from "./noimage.png";
 
 const ArtCard = ({ item }) => {
+  const {
+    webImage,
+    title,
+    longTitle,
+    principalOrFirstMaker,
+    productionPlaces,
+    hasImage,
+  } = item;
+
+  // const defaultImage = "./noimage.png";
+
   return (
-    <div
-      style={{
-        border: "1px solid #ccc",
-        borderRadius: "5px",
-        padding: "10px",
-        width: "200px",
-        textAlign: "center",
-        margin: "10px",
-      }}
-    >
+    <div className="artcard-container">
       <img
-        src={item.webImage?.url}
-        alt={item.title}
-        style={{ width: "100%", height: "auto", borderRadius: "5px" }}
+        className="artcard-img"
+        src={webImage.url.startsWith("http") ? webImage.url : "noimage.png"}
+        alt={title}
       />
-      <h3 style={{ fontSize: "16px", margin: "10px 0" }}>{item.title}</h3>
-      <p style={{ fontSize: "14px", color: "#555" }}>
-        {item.principalOrFirstMaker}
-      </p>
+      <div className="artcard-text">
+        <h3 className="artcard-title">{title}</h3>
+        <p className="artcard-fulltitle">{longTitle} </p>
+
+        <h4 className="author">{principalOrFirstMaker}</h4>
+        <p className="artcard-place">
+          {(productionPlaces?.[0] || "") +
+            (productionPlaces?.[2] ? `, ${productionPlaces[2]}` : "")}
+        </p>
+      </div>
     </div>
   );
 };

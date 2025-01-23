@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.artcard-container {
+    border: #415a77 3px solid;
+    border-radius: 5px;
+    width: 50vw;
+    margin: 50px auto;
+    font-family: Roboto;
+    display: flex;
+    background-color: #415a7722;
+    color: #1B263B;
+
+}
+
+.artcard-img {
+    border: #415a77 1px solid;
+    border-radius: 5px;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+
+}
+
+.artcard-text {
+    margin-top: 20px;
+
+}
+
+.artcard-title .artcard-author .artcard-place {
+    font-size: 1rem;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.artcard-place {
+    font-style: italic;
+}
