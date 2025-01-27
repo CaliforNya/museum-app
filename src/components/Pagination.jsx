@@ -31,4 +31,4 @@ const Pagination = ({
 };
 
 export default Pagination;
-// stronowanie bez przyciskow 
+
