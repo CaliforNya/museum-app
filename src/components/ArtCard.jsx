@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ArtCard.css";
-// import defaultImage from "./noimage.png";
 
 const ArtCard = ({ item }) => {
   const {
@@ -9,10 +8,17 @@ const ArtCard = ({ item }) => {
     longTitle,
     principalOrFirstMaker,
     productionPlaces,
-    hasImage,
   } = item;
 
-  // const defaultImage = "./noimage.png";
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleImageClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="artcard-container">
@@ -20,10 +26,11 @@ const ArtCard = ({ item }) => {
         className="artcard-img"
         src={webImage.url.startsWith("http") ? webImage.url : "noimage.png"}
         alt={title}
+        onClick={handleImageClick}
       />
       <div className="artcard-text">
         <h3 className="artcard-title">{title}</h3>
-        <p className="artcard-fulltitle">{longTitle} </p>
+        <p className="artcard-fulltitle">{longTitle}</p>
 
         <h4 className="author">{principalOrFirstMaker}</h4>
         <p className="artcard-place">
@@ -31,6 +38,14 @@ const ArtCard = ({ item }) => {
             (productionPlaces?.[2] ? `, ${productionPlaces[2]}` : "")}
         </p>
       </div>
+
+      {isModalOpen && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content">
+            <img src={webImage.url} alt={title} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

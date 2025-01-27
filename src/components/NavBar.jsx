@@ -4,7 +4,7 @@ import "./NavBar.css";
 const NavBar = () => {
   return (
     <nav className="navbar">
-      <h1>Rijksmuseum Collection Search</h1>
+      <h1>Rijksmuseum Collection Viewer</h1>
     </nav>
   );
 };
